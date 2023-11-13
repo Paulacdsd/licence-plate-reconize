@@ -48,8 +48,8 @@ def preprocessing(path):
     #Erosão+Dilatação
     erode=cv2.erode(thresh2,None, iterations=3)#2
     dilate=cv2.dilate(erode, None, iterations=9)#1
-    cv2.imshow('image', dilate)
-    cv2.waitKey(0)
+    #cv2.imshow('image', dilate)
+    #cv2.waitKey(0)
     croped=crop(dilate, gray)
     if croped is not None:
         cv2.imshow('image', croped)

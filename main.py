@@ -20,12 +20,12 @@ def scan_plate(image):
 
 
 
-_, _, filenames = next(walk('./imagens2/'))
+_, _, filenames = next(walk('./imagens/'))
 for i in range(len(filenames)):
     print(filenames[i])
 
 
-    crop_path=sg.preprocessing('imagens2/'+ filenames[i])
+    crop_path=sg.preprocessing('imagens/'+ filenames[i])
 
     if crop_path is not None:
         #detect_text(crop_path)
