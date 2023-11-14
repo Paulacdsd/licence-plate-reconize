@@ -21,18 +21,18 @@ def preprocessing(path):
     gray= cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     #Reduzindo ruídos
     blur=cv2.bilateralFilter(gray, 9,75,75)
-#    cv2.imshow('image',blur)
-#    cv2.waitKey(0)
+    #cv2.imshow('image',blur)
+    #cv2.waitKey(0)
     #Operação morfologica Black-hat
     kernel= cv2.getStructuringElement(cv2.MORPH_RECT, (10,3))
     black_hat=cv2.morphologyEx(blur, cv2.MORPH_BLACKHAT, kernel)
-#    cv2.imshow('image',black_hat)
-#    cv2.waitKey(0)
+    #cv2.imshow('image',black_hat)
+    #cv2.waitKey(0)
     #Operação de fechamento
     kernel2=cv2.getStructuringElement(cv2.MORPH_RECT,(3,3))
     close = cv2.morphologyEx(black_hat, cv2.MORPH_CLOSE, kernel2)
-#   cv2.imshow('image',close)
-#    cv2.waitKey(0)
+    cv2.imshow('image',close)
+    cv2.waitKey(0)
     #Binarização
     thresh= cv2.threshold(close,0 , 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
     #Gradiente na Direção x
